@@ -1,0 +1,32 @@
+<html>
+	<head th:replace="~{base :: head}">
+	</head>
+	<body>
+		<div th:replace="~{base :: logo}"></div>
+		<div th:replace="~{base :: navbar}"></div>
+		<div class="container">
+			<div th:replace="~{base :: titulo('Novo cargo')}"></div>
+			<div class="card mt-3">
+				<form th:object="${requisicaoNovoCargo}" action="novo" class="card-body" method="POST">
+					<div>
+						<label class="form-label" for="nomeCargo">Nome do cargo</label>
+						<input th:field="*{nomeCargo}" th:errorclass="is-invalid" class="form-control" placeholder="Nome do cargo"/>
+						<small>Informe o nome do cargo a ser inserido</small>
+						<div class="invalid-feedback" th:errors="*{nomeCargo}">
+							Erros
+						</div>
+					</div>
+					<div>
+						<label class="form-label" for="descricao">Descrição</label>
+						<textarea th:field="*{descricao}" th:errorclass="is-invalid" class="form-control" placeholder="Adicione a descrição do cargo a ser cadastrado."></textarea>
+						<div class="invalid-feedback" th:errors="*{descricao}">
+							Erros
+						</div>
+					</div>
+					<button class="btn btn-primary mt-3" type="submit">Cadastrar</button>
+				</form>
+			</div>
+		</div>
+				
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+	<head th:replace="~{base :: head}">
+	</head>
+	<body>
+		<div th:replace="~{base :: logo}"></div>
+		<div th:replace="~{base :: navbar}"></div>
+		<div class="container">
+			<div th:replace="~{base :: titulo('Novo perfil')}"></div>
+			<div class="card mt-3">
+				<form th:object="${requisicaoNovoPerfil}" action="novo" class="card-body" method="POST">
+					<div>
+						<label class="form-label" for="nomePerfil">Nome do perfil</label>
+						<input th:field="*{nomePerfil}" th:errorclass="is-invalid" class="form-control" placeholder="Nome do cargo"/>
+						<small>Informe o nome do perfil a ser inserido</small>
+						<div class="invalid-feedback" th:errors="*{nomePerfil}">
+							Erros
+						</div>
+					</div>
+					<button class="btn btn-primary mt-3" type="submit">Cadastrar</button>
+				</form>
+			</div>
+		</div>
+				
+	</body>
+</html>

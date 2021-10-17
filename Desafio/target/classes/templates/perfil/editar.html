@@ -1,0 +1,22 @@
+<html>
+	<head th:replace="~{base :: head}">
+	</head>
+	<body>
+		<div th:replace="~{base :: logo}"></div>
+		<div th:replace="~{base :: navbar}"></div>
+		<div class="container">
+			<div th:replace="~{base :: titulo('Editando perfil')}"></div>
+			<div class="card mt-3">
+				<form action="atualizar" class="card-body" method="POST">
+					<input type="hidden" th:name="id" th:value="${perfil.id}">
+					<div>
+						<label class="form-label" for="nomePerfil">Nome do perfil</label>
+						<input th:name="nome" th:value="${perfil.nome}" class="form-control" placeholder="Nome do perfil"/>
+						<small>Informe o nome do perfil a ser editado</small>
+					</div>
+					<button class="btn btn-primary mt-3" type="submit">Alterar</button>
+				</form>
+			</div>
+		</div>			
+	</body>
+</html>

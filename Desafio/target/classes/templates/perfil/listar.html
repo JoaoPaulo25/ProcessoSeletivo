@@ -1,0 +1,35 @@
+<html>
+	<head th:replace="~{base :: head}">
+	</head>
+	<body>
+		<div th:replace="~{base :: logo}"></div>
+		<div th:replace="~{base :: navbar}"></div>
+		<div class="container">
+			<div th:replace="~{base :: titulo('Listando cargos')}"></div>
+			<div class="card mt-3">
+				<div class="card-body">
+					<table class="table">
+					  	<thead>
+					    	<tr>
+					      		<th scope="col">#</th>
+					      		<th scope="col">Perfil</th>
+					      		<th scope="col">Ação</th>
+					    	</tr>
+					  	</thead>
+					  	<tbody>
+						    <tr th:each="perfils : ${perfil}">
+						      	<th th:text="${perfils.id}" scope="row">1</th>
+						      	<td th:text="${perfils.nome}">Mark</td>
+						      	<td>
+						      		<a class="btn btn-primary" th:href="@{editar/{id}(id=${perfils.id})}">
+						      			<i class="fas fa-edit"></i> Editar
+						      		</a>
+						      	</td>
+						    </tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>			
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+	<head th:replace="~{base :: head}">
+	</head>
+	<body>
+		<div th:replace="~{base :: logo}"></div>
+		<div th:replace="~{base :: navbar}"></div>
+		<div class="container">
+			<div th:replace="~{base :: titulo('Listando cargos')}"></div>
+			<div class="card mt-3">
+				<div class="card-body">
+					<table class="table">
+					  	<thead>
+					    	<tr>
+					      		<th scope="col">#</th>
+					      		<th scope="col">Nome</th>
+					      		<th scope="col">CPF</th>
+					      		<th scope="col">Data de Nascimento</th>
+					      		<th scope="col">Sexo</th>
+					      		<th scope="col">Cargo</th>
+					      		<th scope="col">Perfil</th>
+					      		<th scope="col">Criação</th>
+					      		<th scope="col">Ação</th>
+					    	</tr>
+					  	</thead>
+					  	<tbody>
+						    <tr th:each="usuarios : ${usuario}">
+						      	<th th:text="${usuarios.id}" scope="row">1</th>
+						      	<td th:text="${usuarios.nome}">Mark</td>
+						      	<td th:text="${usuarios.cpf}">Mark</td>
+						      	<td th:text="${usuarios.dataNascimento}">Mark</td>
+						      	<td th:text="${usuarios.sexo}">Mark</td>
+						      	<td th:text="${usuarios.cargo}">Mark</td>
+						      	<td th:text="${usuarios.perfil}">Mark</td>
+						      	<td th:text="${usuarios.criacao}">Mark</td>
+						      	<td>
+						      		<a class="btn btn-primary" th:href="@{editar/{id}(id=${usuarios.id})}">
+						      			<i class="fas fa-edit"></i> Editar
+						      		</a>
+						      	</td>
+						    </tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>			
+	</body>
+</html>

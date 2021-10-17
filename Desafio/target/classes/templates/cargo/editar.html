@@ -1,0 +1,27 @@
+<html>
+	<head th:replace="~{base :: head}">
+	</head>
+	<body>
+		<div th:replace="~{base :: logo}"></div>
+		<div th:replace="~{base :: navbar}"></div>
+		<div class="container">
+			<div th:replace="~{base :: titulo('Editando cargo')}"></div>
+			<div class="card mt-3">
+				<form action="atualizar" class="card-body" method="POST">
+					<input type="hidden" th:name="id" th:value="${cargo.id}">
+					<div>
+						<label class="form-label" for="nomeCargo">Nome do cargo</label>
+						<input th:name="nome" th:value="${cargo.nome}" class="form-control" placeholder="Nome do cargo"/>
+						<small>Informe o nome do cargo a ser inserido</small>
+						
+					</div>
+					<div>
+						<label class="form-label" for="descricao">Descrição</label>
+						<textarea th:name="descricao" th:text="${cargo.descricao}" class="form-control" placeholder="Adicione a descrição do cargo a ser cadastrado."></textarea>
+					</div>
+					<button class="btn btn-primary mt-3" type="submit">Alterar</button>
+				</form>
+			</div>
+		</div>			
+	</body>
+</html>

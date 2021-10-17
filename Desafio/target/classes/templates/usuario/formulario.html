@@ -1,0 +1,69 @@
+<html>
+	<head th:replace="~{base :: head}">
+	</head>
+	<body>
+	<div th:replace="~{base :: logo}"></div>
+		<div th:replace="~{base :: navbar}"></div>
+		<div class="container">
+			<div th:replace="~{base :: titulo('Novo perfil')}"></div>
+			<div class="card mt-3">
+				<form th:object="${requisicaoNovoUsuario}" action="novo" class="card-body" method="POST">
+					<div>
+						<label class="form-label" for="nomeUsuario">Nome do usuário</label>
+						<input th:field="*{nomeUsuario}" th:errorclass="is-invalid" class="form-control" placeholder="Nome do usuário"/>
+						<small>Informe o nome do perfil a ser inserido</small>
+						<div class="invalid-feedback" th:errors="*{nomeUsuario}">
+							Erros
+						</div>
+					</div>
+					<div>
+						<label class="form-label" for="cpf">CPF</label>
+						<input th:field="*{cpf}" th:errorclass="is-invalid" class="form-control" placeholder="Digite o CPF"/>
+						<small>Informe o nome do perfil a ser inserido</small>
+						<div class="invalid-feedback" th:errors="*{cpf}">
+							Erros
+						</div>
+					</div>
+					<div>
+						<label class="form-label" for="dataNasc">Data de nascimento</label>
+						<input class="form-control" placeholder="Digite sua data de nascimento"/>
+						<small>Informe o nome do perfil a ser inserido</small>
+					</div>
+					<div>
+						<label class="form-label" for="sexo">Sexo</label>
+						<div class="form-check">
+						  	<input class="form-check-input" type="radio" name="sexo" id="m" value="m" checked>
+						  	<label class="form-check-label" for="m">
+						    	M
+						  	</label>
+						</div>
+						<div class="form-check">
+						  	<input class="form-check-input" type="radio" name="sexo" id="f" value="f">
+						  	<label class="form-check-label" for="f">
+						    	F
+						  	</label>
+						</div>
+					</div>
+					<div>
+						<label class="form-label" for="cargo">Cargo</label>
+						<input th:field="*{cargo}" th:errorclass="is-invalid" class="form-control" placeholder="Escolha o cargo"/>
+						<small>Informe o nome do perfil a ser inserido</small>
+						<div class="invalid-feedback" th:errors="*{cargo}">
+							Erros
+						</div>
+					</div>
+					<div>
+						<label class="form-label" for="perfil">Perfil</label>
+						<input th:field="*{perfil}" th:errorclass="is-invalid" class="form-control" placeholder="Nome do cargo"/>
+						<small>Informe o nome do perfil a ser inserido</small>
+						<div class="invalid-feedback" th:errors="*{perfil}">
+							Erros
+						</div>
+					</div>
+					<button class="btn btn-primary mt-3" type="submit">Cadastrar</button>
+				</form>
+			</div>
+		</div>
+				
+	</body>
+</html>
